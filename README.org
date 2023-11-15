@@ -2,12 +2,29 @@
 
 * Summary
 
-Test project for monitoring windows devices with grafana.
+Test lab project for monitoring windows devices with grafana.
 - windows_exporter for metrics
 - loki / promtail for logs
 - deploy with docker (windows desktop for test)
 
 
+Many things have been sourced from this repo as an example:
+- https://github.com/stefanprodan/dockprom
 
 
+
+* Windows Exporter Install
+
+Download from releases here: https://github.com/prometheus-community/windows_exporter . This will handle pulling the metrics from the windows machine.Using the command below to install the package will start the exporter with many of the modules turned on for testing. For a production configuration this should be tuned to just the modules publishing metrics need for dashboards.
+
+
+#+begin_src shell
+
+ msiexec /i windows_exporter-0.24.0-amd64.msi ENABLED_COLLECTORS="ad,adfs,cache,cpu,cpu_info,cs,container,dfsr,dhcp,dns,fsrmquota,iis,logical_disk,logon,memory,msmq,mssql,netframework_clrexceptions,netframework_clrinterop,netframework_clrjit,netframework_clrloading,netframework_clrlocksandthreads,netframework_clrmemory,netframework_clrremoting,netframework_clrsecurity,net,os,process,remote_fx,service,tcp,time,vmware" TEXTFILE_DIR="C:\custom_metrics" LISTEN_PORT="9115"
   
+#+end_src
+
+After the exporter is installed the metrics should be visiable at localhost:9115
+
+
+
