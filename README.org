@@ -1,0 +1,13 @@
+#+title: Windows Grafana Monitoring
+
+* Summary
+
+Test project for monitoring windows devices with grafana.
+- windows_exporter for metrics
+- loki / promtail for logs
+- deploy with docker (windows desktop for test)
+
+
+
+
+  
